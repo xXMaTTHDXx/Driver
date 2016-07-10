@@ -1,4 +1,4 @@
-package io.matthd.driverbase.mongo;
+package io.matthd.driverbase.player.mongo;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
