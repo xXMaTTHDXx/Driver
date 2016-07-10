@@ -1,0 +1,15 @@
+group 'io.matthd.driverbase'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:1.16.8"
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.2.2'
+}

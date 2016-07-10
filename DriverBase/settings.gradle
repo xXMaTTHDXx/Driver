@@ -1,0 +1,3 @@
+includeFlat 'DriverBungee'
+findProject(':DriverBungee')?.name = 'driver-bungee'
+
