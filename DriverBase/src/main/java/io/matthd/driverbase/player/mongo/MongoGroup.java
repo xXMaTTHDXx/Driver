@@ -73,7 +73,9 @@ public class MongoGroup implements Group {
 
     @Override
     public void addParent(Group group) {
-
+        if (this.parents.contains(group)) return;
+        this.parents.add(group);
+        this.reloadPermissions();
     }
 
     @Override
@@ -91,12 +93,26 @@ public class MongoGroup implements Group {
 
     }
 
+    @Override
+    public void reloadPermissions() {
+        this.getAllPermissions().clear();
+
+        List<String> perms = new ArrayList<>(localPermissions);
+
+        for (Group parent : parents) {
+            if (!(parent instanceof MongoGroup)) {
+                return;
+            }
+            perms.addAll(parent.getLocalPermissions());
+        }
+        setLocalPermissions(perms);
+    }
+
     public DBObject getDBObject() {
         DBObject obj = new BasicDBObject("uuid", uuid);
         obj.put("name", name);
         obj.put("parents", parents);
         obj.put("perms", localPermissions);
-
         return obj;
     }
 }

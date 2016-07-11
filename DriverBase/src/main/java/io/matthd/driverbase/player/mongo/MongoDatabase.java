@@ -2,6 +2,7 @@ package io.matthd.driverbase.player.mongo;
 
 import com.mongodb.*;
 import io.matthd.driverbase.player.Database;
+import io.matthd.driverbase.player.MongoKeys;
 
 /**
  * Created by Matt on 2016-07-10.
@@ -23,7 +24,7 @@ public class MongoDatabase implements Database {
     @Override
     public void connect() {
         client = new MongoClient(address, options);
-        this.db = client.getDB("driver");
+        this.db = client.getDB(MongoKeys.DB.get());
     }
 
     @Override
@@ -38,7 +39,6 @@ public class MongoDatabase implements Database {
     public DBCollection getCollection(String name) {
         DBCollection coll = db.getCollection(name);
         if (coll == null) return null;
-
         return coll;
     }
 }

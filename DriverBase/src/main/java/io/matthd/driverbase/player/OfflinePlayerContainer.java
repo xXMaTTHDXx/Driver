@@ -8,11 +8,13 @@ import java.util.UUID;
  */
 public interface OfflinePlayerContainer {
 
-    List<OfflinePlayer> getOnlinePlayers();
-
     List<OfflinePlayer> getPlayersByGroup(Group group);
 
     OfflinePlayer getPlayerByName(String name);
 
     OfflinePlayer getPlayerByUniqueId(UUID uuid);
+
+    void savePlayerData(OfflinePlayer player);
+
+    void deletePlayerData(OfflinePlayer player);
 }

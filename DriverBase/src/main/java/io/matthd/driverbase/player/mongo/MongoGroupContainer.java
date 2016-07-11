@@ -84,4 +84,13 @@ public class MongoGroupContainer implements GroupContainer {
         }
         return null;
     }
+
+    public MongoGroup getDefaultGroup() {
+        for (Group group : groups) {
+            if (group.getPriority() == groups.size()) {
+                return (MongoGroup) group;
+            }
+        }
+        return null;
+    }
 }

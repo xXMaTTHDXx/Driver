@@ -23,4 +23,6 @@ public interface Group {
     Integer getPriority();
 
     void setPriority(Integer priority);
+
+    void reloadPermissions();
 }

@@ -17,4 +17,10 @@ public interface OfflinePlayer {
     Date getLastJoin();
 
     Group getGroup();
+
+    void setFirstJoin(Date firstJoin);
+
+    void setLastJoin(Date lastJoin);
+
+    void setName(String name);
 }
